@@ -1,0 +1,109 @@
+<html ng-app="friends_app">
+<head>
+  <title>Full Mean Demo="support tag from-rainbow"</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script>
+
+    var friends_app = angular.module('friends_app', []);
+    friends_app.factory('FriendFactory', function($http) {
+
+      var friends = [];
+      var factory = {};
+      
+      factory.getFriends = function(callback) {
+          $http.get('/friends').success(function(output) {
+            friends = output;
+            callback(friends);
+          })
+      }
+
+      factory.addFriend = function(info, callback) {
+         $http.post('/friends/add', {name: info.name, age: info.age}).success(function(output) {
+              console.log("succes output", output);
+              friends.push(output);
+              callback(friends);
+              // console.log(output);
+              // friends = output;
+              // callback();  // call to getFriends to repopulate the client
+          })
+          // friends = output;
+          // callback(friends);
+        // friends.push({name: info.name, age: info.age});
+        // callback(friends);
+        }
+
+        factory.removeFriend = function(info, callback) {
+         $http.post('/friends/remove', {id: info._id}).success(function(output) {
+            // calling on the getfriends function in the controller, no need for an algo
+            //callback();
+           
+            var counter = 0;
+            for(var i=0; i<friends.length; i++ ){
+              counter ++;
+              //console.log("counter", counter);
+              //console.log(friends[i]._id);
+              if(info._id === friends[i]._id){
+                friends.splice(counter-1,1);
+                //console.log(friends);
+                callback(friends);
+              }
+            }
+          })
+        }
+      return factory;
+    });
+
+
+    friends_app.controller('FriendsController', function($scope, FriendFactory) {
+    
+      FriendFactory.getFriends(function(data) {
+        $scope.friends = data;
+      });
+
+      $scope.addfriend = function() {
+        // add friends to db
+        FriendFactory.addFriend($scope.new_friend, function(data) {
+          // populate index with new friends array including the new friend we pushed to it
+          $scope.friends = data;
+          $scope.new_friend = {};
+
+
+          //get friends from db
+          // FriendFactory.getFriends(function(data) {
+          //   $scope.friends = data;
+          //   $scope.new_friend = {};
+          // });
+
+        });
+      }
+
+      $scope.removeFriend = function(friend){
+        FriendFactory.removeFriend(friend, function(data){
+          $scope.friends = data;
+
+          //get friends from db
+          // FriendFactory.getFriends(function(data) {
+          //   $scope.friends = data;
+          // });
+        })
+      }
+    });
+
+
+  </script>
+</head>
+<body ng-controller="FriendsController">
+  <h1>Friends</h1>
+  <input type="text" ng-model="filter_name" placeholder="filter_name">
+  <ul>
+      <li ng-repeat="friend in friends | filter: filter_name">
+      {{friend.name}}, {{friend.age}}, {{friend._id}}
+      <a href="#" ng-click="removeFriend(friend)">delete</a>
+    </li>
+  </ul>
+  <h1>Add a Friend</h1>
+  <input type="text" ng-model="new_friend.name" placeholder="name">
+  <input type="text" ng-model="new_friend.age" placeholder="age">
+  <input type="submit" ng-click="addfriend(new_friend)">
+</body>
+</html>
