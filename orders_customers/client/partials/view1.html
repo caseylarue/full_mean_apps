@@ -1,0 +1,33 @@
+<!-- <div ng-controller="view1Controller">
+    <ul>
+        <li ng-repeat='sport in sports'>{{ sport }}</li>
+    </ul>
+</div> -->
+<div>
+	<div ng-controller='customersController'>
+		<h1>Welcome to our Customer Page!</h1>
+		<h2>Add a new customer</h2>
+
+		<label>Customer Name:</label>
+		<input type='text' ng-model="newCustomer.name">
+		<input ng-click='addCustomer(name)' type='submit' value='add' >
+		Search Customers:<input ng-model="filter_name" type='text' placeholder='search name..'>
+
+		<table>
+			<thead>
+				<td>Customer Name</td>
+				<td>Created Date</td>
+				<td>Actions</td>
+				<td>Orders</td>
+			</thead>
+			<tbody ng-repeat="customer in customers | filter:filter_name | orderBy:'created_at' ">
+				<tr>
+					<td><a href="#/edit" ng-click="displayCustomer(customer)"><span ng-bind="customer.name"></span></a></td>
+					<td><span ng-bind="customer.created_at | date:'MM/dd/yyyy' "></span></td>
+					<td><button> <a href="#/" ng-click="removeCustomer(customer)">delete</a></button></td>
+					<td><span ng-bind="customer.orders"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
