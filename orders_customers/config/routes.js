@@ -22,8 +22,19 @@ var customers = require('./../server/controllers/customers.js');
 	  	customers.display(req, res);
 	})
 
+
+
+	app.get('/order/get', function(req, res) {
+	  	orders.show(req, res);
+	})
+
 	app.post('/order/add', function(req, res){
 		console.log("POST DATA", req.body);
-	  	customers.display(req, res);
+	  	orders.add(req, res);
+	})
+
+	app.post('/order/remove', function(req, res){
+		console.log("POST DATA", req.body);
+	  	orders.remove(req, res);
 	})
   }

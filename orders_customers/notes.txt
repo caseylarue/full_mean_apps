@@ -1,29 +1,30 @@
 
-HELP NEEDED
-edit/update customer
-- need to render the single customer view in the edit.html to edit.  I have having trouble with ngview displaying $scope.display_customers 
-- I do not know how to render a single object in the html file using ngviews.  Currently I am pushing to the $scope.display_customers array.
+
+CUSTOMERS PAGE
+
+	HELP NEEDED
+	- edit/update customer
+		- need to render the single customer view in the edit.html to edit.  I have having trouble with ngview displaying $scope.display_customers 
+		- I do not know how to render a single object in the html file using ngviews.  Currently I am pushing to the $scope.display_customers array.
+
+
+CUSTOMER PAGE 
+	- utilize the current customer array and count the number within the array
+	- When delete customer, delete all of the orders
+
+	HELP NEEDED
+	- edit orders 
+	- edit customer info
+
+ORDERS PAGE
+	- delete order
+
+MISC
+	- mongoose validatators, a library
+	Login/registration
+
+	- Seprate client side factories and controller
 
 
 
-Add order
-- attach an id to a select in ng-repeat
-
-Get orders
-delete order
-edit/update orders
-
-mongoose validatators, a library
-
-
-view customer
-view customer orders
-edit customer
-
-Login/registration
-
-
-DO LATER
-Customers - 
-  repopulate page after add and remove without going to the db
-
+If a name is there show an error, if not add it to a db. 

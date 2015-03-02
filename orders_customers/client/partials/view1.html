@@ -24,8 +24,9 @@
 				<tr>
 					<td><a href="#/edit" ng-click="displayCustomer(customer)"><span ng-bind="customer.name"></span></a></td>
 					<td><span ng-bind="customer.created_at | date:'MM/dd/yyyy' "></span></td>
-					<td><button> <a href="#/" ng-click="removeCustomer(customer)">delete</a></button></td>
-					<td><span ng-bind="customer.orders"></span></td>
+					<td><button><a href="#/" ng-click="removeCustomer(customer)">delete</a></button></td>
+					<td><a href="#/edit/{{ customer._id }}" ng-click="displayCustomer(customer)">{{ orders.length }}</a></td>
+					<!-- <td><a href="#/edit/{{ customer._id }}" ng-click="displayCustomer(customer)"> <span ng-bind="customer.order_count"></span></a></td> -->
 				</tr>
 			</tbody>
 		</table>

@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
 var Order = mongoose.model('Order');
+var Customer = mongoose.model('Customer');
 
 module.exports = (function() {
   	return {
 	  	show: function(req, res) {
-	  		Friend.find({}, function(err, results) {
+	  		Order.find({}, function(err, results) {
 	    		if(err) {
 	      			console.log(err);
 	    		} else {
@@ -13,27 +14,42 @@ module.exports = (function() {
 	  		})
 		},
 		add: function(req, res) {
-			var friend = new Friend({name: req.body.name, age: req.body.age});
-			friend.save(function(err, results){
-				if(err){
-					console.log('something went wrong');
-				}
-				else{
-					console.log("results", results);
-					console.log('successfully added a user!');
-					res.json({name: results.name, age: results.age, _id: results._id, orders: results.orders });
-				}
-			})
+			var order = new Order({_customer: req.body.id, product: req.body.product, qty: req.body.qty, created_at: Date.now()});
+				console.log("order", order);
+					order.save(function(err, results){
+						if(err){
+							console.log('something went wrong');
+						}
+						else{
+							console.log("added order to db", results);
+							console.log('successfully added order!');
+							Customer.update({_id: req.body.id}, {$push: {orders: order} }, function(err, results){
+								if(err){
+									console.log('something went wrong getting the customer from db');
+								}
+								else{
+									console.log("results of customer find", results);
+								}
+							})
+							res.json({order: "successfully posted"});
+						}
+					})		
 		},
 		remove: function(req, res) {
-			Friend.remove({_id: req.body.id}, function(err, results){
+			Order.remove({_id: req.body.order_id}, function(err, results){
 				if(err){
 					console.log('something went wrong');
 				}
 				else{
-					console.log("results", results);
-					console.log('successfully deleted user!');
-					res.json({success: "true"});
+					Customer.update({_id: req.body.customer_id}, {$pull: {'orders': {'_id': req.body.order_id} } }, function(err, results){
+						if(err){
+							console.log('something went wrong getting the customer from db');
+						}
+						else{
+							console.log("results of customer find", results);
+							res.json({success: "true"});
+						}
+					})	
 				}		
 			})
 		}
