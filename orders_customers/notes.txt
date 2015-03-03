@@ -5,16 +5,8 @@ CUSTOMERS PAGE
 	HELP NEEDED
 	- edit/update customer
 		- need to render the single customer view in the edit.html to edit.  I have having trouble with ngview displaying $scope.display_customers 
-		- I do not know how to render a single object in the html file using ngviews.  Currently I am pushing to the $scope.display_customers array.
-
-
-CUSTOMER PAGE 
-	- utilize the current customer array and count the number within the array
-	- When delete customer, delete all of the orders
-
-	HELP NEEDED
-	- edit orders 
-	- edit customer info
+		- I do not know how to render a single object in the html file using ngviews.  Currently I am pushing to the $scope.display_customers array
+		
 
 ORDERS PAGE
 	- delete order

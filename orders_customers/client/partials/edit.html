@@ -1,13 +1,14 @@
 <div>
 	See notes page.  I need help on this.
-	<div ng-controller='customersController'>
+	<div>
 		<h1>Hi</h1>
 
 	 	<div>
 			<h1>Edit a Customer</h1>
-			{{ display_customer.name }}
+			{{ display_customer }}
 			<p><span ng-bind="display_customer.name"></span></p>
 			<label>Customer Name:</label>
+			{{display_customer._id }}aa
 			<textarea>{{ display_customer.name }}</textarea>
 			
 		</div>

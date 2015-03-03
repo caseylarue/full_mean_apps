@@ -11,7 +11,7 @@
         })
         .when("/edit/:customer_id",{
         	templateUrl: 'partials/edit.html',
-        	controller: 'customersController'
+        	controller: 'editController'
         })
         .otherwise({
           redirectTo: '/'
@@ -231,4 +231,18 @@
     	
     })
 
+myApp.controller('editController', function ($scope, customerFactory){
+
+		$scope.display_customer;
+    	
+    	$scope.displayCustomer = function(customer){
+    		console.log("display this customer", customer);
+    		customerFactory.displayCustomer(customer, function(data){
+					console.log("single customer data", data);
+    				$scope.display_customer = data;
+    				console.log("$scope.display_customer", $scope.display_customer);
+    		})
+    	}
+    	
+    })
 

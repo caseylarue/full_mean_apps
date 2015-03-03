@@ -41,10 +41,12 @@ module.exports = (function() {
 					console.log('something went wrong');
 				}
 				else{
-					Customer.update({_id: req.body.customer_id}, {$pull: {'orders': {'_id': req.body.order_id} } }, function(err, results){
+					//Customer.update({_id: req.body.customer_id}, {$pull: {orders: {ObjectId: (req.body.order_id)} } }, function(err, results){
+					//Customer.update({_id: "54f3a2844471213c3b050ee5"}, {$pull: {orders: ("54f4a29a78be0b6b202c27b3") } }, function(err, results){	
+					Customer.update({_id: req.body.customer_id}, {$pull: {orders: (req.body.order_id) } }, function(err, results){	
 						if(err){
 							console.log('something went wrong getting the customer from db');
-						}
+						}	
 						else{
 							console.log("results of customer find", results);
 							res.json({success: "true"});
