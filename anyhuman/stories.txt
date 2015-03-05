@@ -1,3 +1,43 @@
+Top Features:
+
+
+Home Page
+	- (a) capture email into database (email, created_at) 
+	  (b) automatically email the user when they enter in their email
+	- (a) create blog posts into mongdb (title, content, created_at, , tags, categories, 
+			comments[{user, comment, created_at}])
+			Ratings [ count(5), count(4), count(3), count(2)]
+	- load all blog posts
+	- establish pagination
+	- enable search of post text and titles
+	- soundcloud API integration
+
+Blog Page
+	show single blog post
+	enable comments on each blog
+	enable ratings on each blog (capture ratings)
+	enable manadatory facebook login for comments
+
+Feedback page
+	create feedback page
+	have feedbacks automatically send an email to me
+
+Email
+	Create email template and link to database to automatically send out with each blog post
+
+Archive 
+	display blog posts by month (with counter next to month)
+	On click loan a page "March 2015 / Archive"
+
+
+
+Activate email for anyhuman.io
+- google apps
+
+Design
+- logo (fiver)
+- 
+
 Social Media
 - instagram
 - twittter
@@ -5,4 +45,3 @@ Social Media
 - youTube
 - google plus
 
-s

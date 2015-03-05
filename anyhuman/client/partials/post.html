@@ -1,0 +1,19 @@
+<div ng-controller="displayController">
+	<div class="post">
+		<!-- <h3>Title: {{single_post.title}}</h3> -->
+		<label>Title</label>
+		<h3>Title: {{single_post.title}}</h3>
+		<h4>Date: {{single_post.created_at | date: "MMMM dd yyyy"}}</h4>
+		<p class="display_content">Content: {{single_post.content}}</p>
+		<p>Share this post</p>
+	</div> <!-- end of post div -->
+</div>
+<!-- 	<div class="comments">
+		<p>Comments</p>
+		<textarea placeholder:"comment"></textarea>
+		<button>Submit</button>
+		<div>
+			<p>Jessie James xx hours ago</p>
+			<textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </textarea>
+		</div>
+	</div> -->

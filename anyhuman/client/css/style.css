@@ -1,0 +1,191 @@
+/************
+colors:
+container: #c9f8db
+***************/
+
+#container {
+/*	padding: 30px;*/
+	margin: 30px auto;
+	height: 1200px;
+	width: 970px;
+	background-color: #c9f8db;
+}
+
+/* NAV *****************************************/
+
+#nav {
+	background-color: #9fc6ad;
+	width: 970px;
+	height: 200px;
+}
+
+.logo, .heading, .nav_right {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.logo {
+	height: 100px;
+	width: 100px;
+	margin: 20px;
+	border: 1px solid black;
+}
+
+.heading {
+	margin-left: 200px;
+}
+
+.nav_right {
+	margin-left: 200px;
+}
+
+.social_media {
+	margin-top: 20px;
+}
+
+/* Main *****************************************/
+
+#main {
+	display: block;
+	width: 970px;
+	width: 1200px;
+}
+
+#main #side_bar, #content {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Side Bar *****************************************/
+
+#side_bar {
+	width: 200px;
+	height: 700px;
+	display: inline-block;
+}
+
+#side_bar h4, .soundcloud {
+	margin-left: 20px;
+}
+
+.soundcloud {
+	border: 1px solid black;
+	height: 100px;
+	width: 130px;
+}
+
+/* Main *****************************************/
+
+#content {
+	width: 750px;
+	display: inline-block;
+}
+
+.post a {
+	margin-left: 550px;
+}
+
+.show_post_content {
+	width: 250px;
+}
+
+/* Footer *****************************************/
+
+#footer {
+	margin-top: 20px;
+	width: 970px;
+}
+
+#footer .feedback, p {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#footer p {
+	margin-left: 100px;
+}
+
+#footer .feedback {
+	margin-left: 200px;
+}
+
+/* post.html *****************************************/
+
+.share {
+	display: inline-block;
+	width: 700px;
+}
+
+.share .soc li a {
+	margin-left: 10px;
+}
+
+.post h3, h4, p, .share {
+	display: block;
+	margin: 15px
+}
+
+.display_content {
+	margin-bottom: 25px;
+}
+
+/* about.html *****************************************/
+
+.bio {
+	font-weight: normal;
+}
+
+/* admin.html *****************************************/
+
+.admin_main {
+	margin: 50px 10px;
+	padding: 10px;
+}
+
+.manage_posts thead td {
+	height: 25px;
+	width: 20px; 
+}
+
+.manage_posts td {
+	padding: 5px;
+	border: 1px solid black;
+	width: 150px;
+	height: 100px;
+	overflow: scroll;
+	margin: 10px;
+}
+
+/* add_post.html *****************************************/
+
+.new_post h2, textarea, button {
+	display: block;
+}
+
+.post_title {
+	margin-bottom: 10px;
+	width: 400px;
+}
+
+.post_content {
+	width: 600px;
+	height: 400px;
+}
+
+.new_post button {
+	margin-top: 20px;
+	margin-left: 500px;
+}
+
+/* edit_post.html *****************************************/
+
+.edit_post textarea {
+	margin-bottom: 10px;
+	width: 400px;
+}
+
+.edit_post .edit_content {
+	width: 600px;
+	height: 400px;
+}
+

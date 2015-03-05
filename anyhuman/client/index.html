@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
 	<meta charset="utf-8"> 
 	<title>AnyHuman</title>
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="normalize.css">
-	<link rel="stylesheet" href="social.css">
-	 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
-    <script type='text/javascript' src="./script.js"></script>
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/social.css">
+	<!-- angular -->
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.3.14/angular-route.min.js"></script>
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css" />
+     <!-- js -->
+    <script type='text/javascript' src="js/script.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -17,26 +25,51 @@
 				Logo Here
 			</div>
 			<div class="heading">
-				<h1>AnyHuman</h1>
-				<h2>Learn the skills to help you Thrive</h2>
+				<h1><a href="#">AnyHuman</a></h1>
+				<h2>can thrive.</h2>
 			</div>
-			<div class="nav_left">
+			<div class="nav_right">
 				<div class="email">
 					<h4>Join the Community!</h4>
 					<input type="email" placeholder="your email">
 					<button type="submit">Submit</button>
 				</div>
-				<ul class="social_media soc">
-				    <li><a class="soc-twitter" href="#"></a></li>
-				    <li><a class="soc-facebook" href="#"></a></li>
-				    <li><a class="soc-linkedin" href="#"></a></li>
-				    <li><a class="soc-google" href="#"></a></li>
-				    <li><a class="soc-youtube" href="#"></a></li>
-				    <li><a class="soc-soundcloud" href="#"></a></li>
-				    <li><a class="soc-email1 soc-icon-last" href="#"></a></li>
-				</ul>
-			</div>
+				<div class="social_media">
+					<ul class="soc">
+					    <li><a class="soc-twitter" href="#"></a></li>
+					    <li><a class="soc-facebook" href="https://www.facebook.com/anyhuman.io"></a></li>
+					    <li><a class="soc-linkedin" href="#"></a></li>
+					 <!--    <li><a class="soc-google" href="#"></a></li>
+					    <li><a class="soc-youtube" href="#"></a></li>
+					    <li><a class="soc-soundcloud" href="#"></a></li>
+					    <li><a class="soc-email1 soc-icon-last" href="#"></a></li> -->
+					</ul>
+				</div> <!-- end of social media div -->	
+				<a href="#/admin">Admin</a>
+			</div> <!-- end of nav_right div -->	
+		</div> <!-- end of nav div -->
+
+		<div id="main">
+			<div id="side_bar">
+				<h4><a href="#/archive">Archive</a></h4>
+				<h4><a href="#/about">About</a></h4>
+				<div class="soundcloud">
+				</div>
+			</div>	
+			<!-- <div id="content-body"> -->
+			 <div id="content">
+			<!-- 	<a href="#">main.html</a>
+	        	<a href="#partial2">view2.html</a> -->
+	        	<div ng-view></div>
+	        </div>
+			<!-- </div> -->
+
+		</div> <!-- end of main div -->
+
+		<div id="footer">
+			<p>Have a question?  Email us at hello@anyhuman.io</p>
 		</div>
+
 	</div>	<!-- end of container div -->	
 </body>
 </html>

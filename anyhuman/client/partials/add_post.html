@@ -1,0 +1,16 @@
+<div ng-controller="postController">
+	<h1>Add a New Post</h1>
+
+	<button><a href="#/admin">Back to Dashboard</a></button>
+
+	<div class="new_post">
+		<h2>Post Title</h2>
+		<textarea ng-model="newPost.title" class="post_title" placeholder="title"></textarea>
+		<textarea ng-model="newPost.content" class="post_content"></textarea>
+		<label>Tags</label>
+		<textarea ng-model="newPost.tags"></textarea>
+		<label>Categories</label>
+		<textarea ng-model="newPost.categories"></textarea>
+		<button ng-click="addPost(newPost)"><a href="#/">Publish!</a></button>
+	</div>
+</div>

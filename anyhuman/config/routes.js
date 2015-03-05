@@ -1,17 +1,21 @@
 // var orders = require('./../server/controllers/orders.js');
 
-// var customers = require('./../server/controllers/customers.js');
+var posts = require('./../server/controllers/posts.js');
 
  module.exports = function(app) {
-	// app.get('/customer/get', function(req, res) {
-	//   	customers.show(req, res);
-	// })
+	app.get('/post/show', function(req, res) {
+	  	posts.show(req, res);
+	})
 
-	// app.post('/customer/add', function(req, res) {
-	// 	//console.log("POST DATA", req.body);
-	//   	customers.add(req, res);
-	// })
+	app.post('/post/add', function(req, res) {
+		console.log("POST DATA", req.body);
+	  	posts.add(req, res);
+	})
 
+	app.post('/post/get_post', function(req, res) {
+		console.log("POST DATA", req.body);
+	  	posts.get_post(req, res);
+	})
 	// app.post('/customer/remove', function(req, res){
 	// 	//console.log("POST DATA", req.body);
 	//   	customers.remove(req, res);
