@@ -1,0 +1,51 @@
+Key Features:
+
+homepage
+- logout feature that re-sets $scope to nothing
+
+dashboard
+??- search topics
+
+topic page 
+- display topics on individual page
+- add post to topic
+- display posts to topic
+- comment on posts to topic
+- display comments on posts to topic
+- allow to upvote / downvote
+- display votes
+- sort posts by the votes
+
+user page
+- display user_name in scope 
+- show the topics posted (that match that username)
+- show the posts (that match that username)
+- show the comments (that match that username)
+
+
+
+
+Home Page
+- Capture name and store in $scope variable for the dashboard page
+
+Dashboard Page
+- Display the $scope_user_name on the top of page
+- display topics on table
+- link topic to individual topic page
+- link user name to user page
+- enable search of posts
+- add a topic
+
+Topic Page
+- display topic
+- alow users to post
+- allow users to comment on posts
+- allow users to upvote or downvote posts
+
+User Page
+- query the db for the user_name in topics, posts, comments and display the count of each
+- ng-show display the topics written by the user and allow them to edit those posts
+
+
+
+

@@ -1,0 +1,105 @@
+<div ng-controller="displayTopicController">
+	<!--Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">	
+			 <!-- Brand and toggle get grouped for better mobile display -->
+	        <div class="navbar-header page-scroll">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#page-top">Discussion Board</a>
+	        </div>
+
+	        <!-- Collect the nav links, forms, and other content for toggling -->
+	        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            <ul class="nav navbar-nav navbar-right">
+	                <li class="hidden">
+	                    <a href="#page-top"></a>
+	                </li>
+	                <li class="page-scroll">
+	                    <a href="#dashboard">Dashboard</a>
+	                </li>
+	                <li class="page-scroll">
+	                    <a href="#logout">Logout</a>
+	                </li>
+	            </ul>
+	        </div>
+		</div> <!-- /.container -->
+	</nav> <!-- Navigation -->
+
+
+	<div class="container header">
+
+		<!-- display post -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h3><a href="#">{{single_topic.user_name}}</a> posted a topic</h3>
+				<h4>Topic: <span>{{single_topic.topic}}</span></h4>
+				<h5>Description: <span>{{single_topic.description}}!</span></h5>
+			</div> <!-- / close col-lg -->
+		</div> <!-- end of row showing posting -->
+
+		<!-- comment box -->
+		<div class="row">
+			<div class="col-lg-8">
+				<form role="form">
+					<div class="form-group">
+						<textarea ng-model="newPost.message" class="form-control" placeholder="Post your answer here..."></textarea>
+						<div class="col-lg-7 col-md-offset-10">
+							<button ng-click="addPost(newPost)" type="submit" class="btn btn-default"><a href="#/add_post/{{single_topic._id}}}">Submit</a></button>
+						</div>
+					</div>
+				</form>
+			</div> <!-- / close col-lg -->
+		</div> <!-- end of row showing posting -->
+
+		<hr>
+
+		<!-- display comments -->
+
+		<div class="row">
+			<div class="col-lg-offset-7 col-lg-2 vote">
+				<button><a href="#">Up</a></button>
+				<h5>5</h5>
+				<button><a hreft="#">Down</a></button>
+				<h5>3</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<h4><a href="#">Jenn </a>commented: <span>HTML and CSS is a great way to start!</span></h4>
+			</div>
+		</div>
+
+		<!-- display comments of comments -->
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-11">
+				<h5><a href="#/user">Casey </a>commented: <span>Start with bootstrap and making websites for your friends and family.</span></h5>
+			</div> <!-- / close col-lg -->	
+			<div class="col-xs-offset-1 col-xs-11">
+				<h5><a href="#">Alpana </a>commented: <span>Take a JavaScript class.</span></h5>
+			</div> <!-- / close col-lg -->	
+			<div class="col-xs-offset-1 col-xs-11">
+				<h5><a href="#">Ceclia </a>commented: <span>Do some small projects to get experience, it is about the struggle</span></h5>
+			</div> <!-- / close col-lg -->	
+		</div> <!-- end of row showing posting -->
+
+		<!-- allow comments -->
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-8">
+				<form role="form">
+					<div class="form-group">
+						<textarea class="form-control" placeholder="Post your comment here..."></textarea>
+						<div class="col-lg-5 col-md-offset-10">
+							<button type="submit" class="btn btn-default"><a href="#/topic">Submit</a></button>
+						</div>
+					</div>
+				</form>
+			</div> <!-- / close col-lg -->
+		</div> <!-- end of row showing posting -->
+		<hr>
+	</div> <!-- /.container -->
+</div>
