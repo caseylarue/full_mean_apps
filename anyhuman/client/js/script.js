@@ -51,9 +51,16 @@ myApp.factory('postFactory', function ($http){
       	})
   	}
 
-  	 factory.displayPost = function(post_id, callback){
+  	factory.displayPost = function(post_id, callback){
   		console.log("info in factory", post_id);
   		$http.post('/post/get_post', {_id: post_id}).success(function(output) {
+          callback(output);  
+      	})
+  	}
+
+  	factory.modifyPost = function(post_id, callback){
+  		console.log("info in factory", post_id);
+  		$http.post('/post/modify_post', {_id: post_id}).success(function(output) {
           callback(output);  
       	})
   	}
@@ -93,6 +100,15 @@ myApp.controller('postController', function ($scope, $location, postFactory){
 			$location.path('/edit_post/:post_id').search({single_post: data});
 		})
 	}
+
+	$scope.editPost = function(post_id, callback){
+		console.log("info to controller", post_id)
+		postFactory.displayPost(post_id, function (data){
+			$scope.single_post = data;
+			console.log("$scope.single_post", $scope.single_post);
+			$location.path('/edit_post/:post_id').search({single_post: data});
+		})
+	}
 })
 
 myApp.controller('displayController', function ($scope, $location, $routeParams, postFactory){
@@ -118,19 +134,18 @@ myApp.controller('editController', function ($scope, $location, $routeParams, po
 	$scope.single_post = $routeParams.single_post;
 
 	$scope.displayPost = function(post_id, callback){
-		console.log("info to controller", post_id)
+		//console.log("info to controller", post_id)
 		postFactory.displayPost(post_id, function (data){
 			$scope.single_post = data;
 			console.log("$scope.single_post", $scope.single_post);
 		})
 	}
 
-	$scope.editPost = function(single_post, callback){
-		console.log("info to controller", single_post);
-		// postFactory.displayPost(post_id, function (data){
-		// 	$scope.single_post = data;
-		// 	console.log("$scope.single_post", $scope.single_post);
-		// })
+	$scope.modifyPost = function(modifyPost, callback){
+		postFactory.modifyPost(post_id, function (data){
+			//$scope.single_post = data;
+			//console.log("$scope.single_post", $scope.single_post);
+		})
 	}
 
 })

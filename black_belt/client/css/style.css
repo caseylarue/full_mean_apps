@@ -1,0 +1,16 @@
+.header {
+	margin-top: 100px;
+	margin-bottom: 60px;
+}
+
+.dashboard_table {
+	margin-top: 30px;
+}
+
+.new_topic {
+	margin-top: 15px;
+}
+
+.vote button, h5 {
+	display: inline-block;
+}

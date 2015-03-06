@@ -16,6 +16,11 @@ var posts = require('./../server/controllers/posts.js');
 		console.log("POST DATA", req.body);
 	  	posts.get_post(req, res);
 	})
+
+	app.post('/post/modify_post', function(req, res) {
+		console.log("POST DATA", req.body);
+	  	posts.modify_post(req, res);
+	})
 	// app.post('/customer/remove', function(req, res){
 	// 	//console.log("POST DATA", req.body);
 	//   	customers.remove(req, res);

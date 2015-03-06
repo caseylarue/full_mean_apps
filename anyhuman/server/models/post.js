@@ -8,6 +8,7 @@ var PostSchema = new mongoose.Schema({
 	tags: String,
 	categories: String,
 	created_at: {type: Date, default: Date.now},
+	updated_at: {type: Date, default: Date.now},
 	comments: [{ body: String, date: Date }],
 	Ratings: []
 });

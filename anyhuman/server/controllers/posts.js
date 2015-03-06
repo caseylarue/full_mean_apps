@@ -27,6 +27,20 @@ module.exports = (function() {
 				}
 			})
 		},
+		modify_post: function(req, res) {
+			var post = new Post({title: req.body.title, content: req.body.content, tags: req.body.tags, categories: req.body.categories, created_at: Date.now()});
+			post.save(function(err, results){
+				if(err){
+					console.log('something went wrong');
+				}
+				else{
+					console.log("results to adding to db", results);
+					console.log('successfully added a post!');
+					res.json({succes: "true" });
+				}
+			})
+		},
+
 		// remove: function(req, res) {
 		// 	Customer.remove({_id: req.body.id}, function(err, results){
 		// 		if(err){
