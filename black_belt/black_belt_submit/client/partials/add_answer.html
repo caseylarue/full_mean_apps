@@ -1,0 +1,13 @@
+<h1>Add Answer</h1>	
+<div ng-controller='displayController'>
+	<h1><span ng-bind="display_question.question"></span></h1>
+	<h3><span ng-bind="display_question.description"></span></h3>
+	<label>Your Name</label>
+	<textarea ng-model="addAnswer.user"></textarea>
+	<label>Your Answer</label>
+	<textarea ng-model="addAnswer.answer"></textarea>
+	<label>Supporting Details</label>
+	<textarea ng-model="addAnswer.details"></textarea>
+	<button><a href="#/">Cancel</a></button>
+	<button ng-click="newAnswer(addAnswer)"><a href="#/show/{{display_question._id}}">Submit</a></button>
+</div>

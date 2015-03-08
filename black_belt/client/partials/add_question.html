@@ -1,0 +1,16 @@
+<div class="add_question" ng-controller="questionsController">
+	<h2>New Question</h2>
+	<form name="myForm" novalidate ng-submit="singupForm()">	
+		<label>Question</label>
+		<textarea ng-model="newQuestion.question" name="question" type="text" ng-minlength=10 required></textarea>
+		<!-- <span style="color:red" ng-show="myForm.newQuestion.question.$dirty && myFrom.newQuestion.question.$invalid"></span> -->
+		<p ng-show="myForm.newQuestion.question.$error.required">Question is required</p>
+		<p ng-show="myForm.newQuestion.question.$error.minlength">Question is min 10 characters</p>
+
+		<label>Description (optional)</label>
+		<textarea ng-model="newQuestion.description"></textarea>
+
+		<button><a href="#/">Cancel</a></button>
+		<button ng-click="addQuestion(newQuestion)"><a href="#/submit_question">Submit</a></button>
+	</form>
+</div>

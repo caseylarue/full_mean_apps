@@ -1,0 +1,24 @@
+<div ng-controller='questionsController'>
+	<h1>Welcome {{user}} to Coding Dojo Q&A</h1>
+	<hr>
+	Search Questions: <input ng-model="filter_name" type='text' placeholder='search name..'>
+	<button><a href="#/add_question">Add A Question</a></button>
+	<table>
+		<thead>
+			<tr>
+				<td>Question</td>
+				<td>Answers</td>
+				<td>Created At</td>
+				<td>Action</td>
+			</tr>
+		</thead>
+		<tbody ng-repeat="question in questions | filter:filter_name | orderBy:'created_at' ">
+			<tr>
+				<td><span ng-bind="question.question"></span></td>
+				<td><span ng-bind="question.answers.length"></span></td>
+				<td><span ng-bind="question.created_at | date: 'MMMM dd yyyy h:mm a' "></span></td>
+				<td><button ng-click="showQuestion(question._id)"><a href="#/show/{{question._id}}">Show</a></button><button ng-click="addAnswer(question._id)"><a href="#/answer/{{question._id}}">Answer</a></button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

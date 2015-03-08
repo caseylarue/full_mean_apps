@@ -1,0 +1,16 @@
+<div class="row">
+	<h2>{{question.question}}</h2>
+	<h3>{{question.description}}</h3>
+
+	<table class="table table-striped">
+		<tbody>
+			<tr ng-repeat="answer in answers | orderBy: predicate">
+				<td>{{answer.user}}:<br />{{answer.answer}}</td>
+				<td>{{answer.like}}</td>
+				<td>
+					<button ng-click="updateLike(answer)" class="btn btn-danger">Like!</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

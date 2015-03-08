@@ -1,0 +1,13 @@
+<div class="add_question" ng-controller="questionsController">
+	<h2>New Question</h2>
+	<form name="myForm" novalidate ng-submit="singupForm()">	
+		<label>Question</label>
+		<textarea ng-model="newQuestion.question" name="question" type="text" ng-minlength=10 required></textarea>
+	
+		<label>Description (optional)</label>
+		<textarea ng-model="newQuestion.description"></textarea>
+
+		<button><a href="#/">Cancel</a></button>
+		<button ng-click="addQuestion(newQuestion)"><a href="#/home">Submit</a></button>
+	</form>
+</div>

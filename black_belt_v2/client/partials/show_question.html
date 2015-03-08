@@ -1,0 +1,13 @@
+<div ng-controller='displayController'>
+	<h1><span ng-bind="display_question.question"></span></h1>
+	<h2><span ng-bind="display_question.description"></span></h2>
+
+	<div ng-repeat="answer in display_answers">
+		<hr>
+		<h6><span ng-bind="answer.likes"></span></h6>
+		<button ng-click="addLike(answer._id)"><a href="#/show/{{answer._question}}">Like this Post!</a></button>
+		<h6><span ng-bind="answer.user"></span></h6>
+		<h4><span ng-bind="answer.answer"></span></h4>
+		<h5><span ng-bind="answer.details"></span></h5>
+	</div>
+</div>
